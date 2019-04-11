@@ -1,5 +1,5 @@
 from io import readreactions, readsites
-from state import State, Transition
+from state import State, Transition, search_possible_events
 #define grids, two ways to define: 
 #(1) generate grids first, then alternatively assign site_type
 #(2) read from a input as in readgrids() 
@@ -23,7 +23,7 @@ for step in range(maxSteps):
 
   #search for possible transition events
   #Information needed: states, reactions
-  events = [transition1, transition2,]   # a list of transition
+  events = search_possible_events(state, reactions)   # a list of transition
 
   #build rate table and normalize it:
   rates = [event.rate for event in events]
